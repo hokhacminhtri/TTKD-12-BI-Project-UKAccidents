@@ -1,0 +1,1262 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/19/2021 9:36:00 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-D1C2UFI"
+  DTS:CreatorName="DESKTOP-D1C2UFI\Thanh"
+  DTS:DTSID="{8381B2A7-88B1-41D7-8118-370818FF55B5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{6BEC6493-F651-4783-A343-E312B52E679E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{8FA62609-965A-4C08-9159-9AC00B280D56}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\codetime\HTTT phuc vu TTKD\2021-2022 - BI Project - UK Accidents\Data\UK Accidents Data 2011-2014\Accidents1114.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.1712766_DABI_ACCIDENT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4E0A67DA-F5EE-4FEC-8B46-2EF242B95127}"
+      DTS:ObjectName="LocalHost.1712766_DABI_ACCIDENT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=1712766_DABI_ACCIDENT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7B11FCFE-9977-470C-BB86-478432E4DDA0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Source -&gt; DB1712766_DABI_ACCIDENT"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Accidents1114$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Accident_Index]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Accident_Index]"
+                      length="255"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Accident_Index]"
+                      name="Accident_Index"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Location_Easting_OSGR]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Location_Easting_OSGR]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Location_Easting_OSGR]"
+                      name="Location_Easting_OSGR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Location_Northing_OSGR]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Location_Northing_OSGR]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Location_Northing_OSGR]"
+                      name="Location_Northing_OSGR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Longitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Longitude]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Longitude]"
+                      name="Longitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Latitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Latitude]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Latitude]"
+                      name="Latitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Police_Force]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Police_Force]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Police_Force]"
+                      name="Police_Force"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Accident_Severity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Accident_Severity]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Accident_Severity]"
+                      name="Accident_Severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Number_of_Vehicles]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Number_of_Vehicles]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Number_of_Vehicles]"
+                      name="Number_of_Vehicles"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Number_of_Casualties]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Number_of_Casualties]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Number_of_Casualties]"
+                      name="Number_of_Casualties"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Day_of_Week]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Day_of_Week]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Day_of_Week]"
+                      name="Day_of_Week"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Time]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Time]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Time]"
+                      name="Time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Local_Authority_(District)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Local_Authority_(District)]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Local_Authority_(District)]"
+                      name="Local_Authority_(District)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Local_Authority_(Highway)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Local_Authority_(Highway)]"
+                      length="255"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Local_Authority_(Highway)]"
+                      name="Local_Authority_(Highway)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[1st_Road_Class]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[1st_Road_Class]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[1st_Road_Class]"
+                      name="1st_Road_Class"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[1st_Road_Number]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[1st_Road_Number]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[1st_Road_Number]"
+                      name="1st_Road_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Road_Type]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Road_Type]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Road_Type]"
+                      name="Road_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Speed_limit]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Speed_limit]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Speed_limit]"
+                      name="Speed_limit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Junction_Detail]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Junction_Detail]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Junction_Detail]"
+                      name="Junction_Detail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Junction_Control]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Junction_Control]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Junction_Control]"
+                      name="Junction_Control"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[2nd_Road_Class]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[2nd_Road_Class]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[2nd_Road_Class]"
+                      name="2nd_Road_Class"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[2nd_Road_Number]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[2nd_Road_Number]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[2nd_Road_Number]"
+                      name="2nd_Road_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Pedestrian_Crossing-Human_Control]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Pedestrian_Crossing-Human_Control]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Pedestrian_Crossing-Human_Control]"
+                      name="Pedestrian_Crossing-Human_Control"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Pedestrian_Crossing-Physical_Facilities]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Pedestrian_Crossing-Physical_Facilities]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Pedestrian_Crossing-Physical_Facilities]"
+                      name="Pedestrian_Crossing-Physical_Facilities"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Light_Conditions]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Light_Conditions]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Light_Conditions]"
+                      name="Light_Conditions"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Weather_Conditions]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Weather_Conditions]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Weather_Conditions]"
+                      name="Weather_Conditions"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Road_Surface_Conditions]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Road_Surface_Conditions]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Road_Surface_Conditions]"
+                      name="Road_Surface_Conditions"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Special_Conditions_at_Site]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Special_Conditions_at_Site]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Special_Conditions_at_Site]"
+                      name="Special_Conditions_at_Site"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Carriageway_Hazards]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Carriageway_Hazards]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Carriageway_Hazards]"
+                      name="Carriageway_Hazards"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Urban_or_Rural_Area]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Urban_or_Rural_Area]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Urban_or_Rural_Area]"
+                      name="Urban_or_Rural_Area"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Did_Police_Officer_Attend_Scene_of_Accident]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Did_Police_Officer_Attend_Scene_of_Accident]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Did_Police_Officer_Attend_Scene_of_Accident]"
+                      name="Did_Police_Officer_Attend_Scene_of_Accident"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[LSOA_of_Accident_Location]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[LSOA_of_Accident_Location]"
+                      length="255"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[LSOA_of_Accident_Location]"
+                      name="LSOA_of_Accident_Location"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Accident_Index]"
+                      dataType="wstr"
+                      length="255"
+                      name="Accident_Index" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Location_Easting_OSGR]"
+                      dataType="r8"
+                      name="Location_Easting_OSGR" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Location_Northing_OSGR]"
+                      dataType="r8"
+                      name="Location_Northing_OSGR" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Longitude]"
+                      dataType="r8"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Latitude]"
+                      dataType="r8"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Police_Force]"
+                      dataType="r8"
+                      name="Police_Force" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Accident_Severity]"
+                      dataType="r8"
+                      name="Accident_Severity" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Number_of_Vehicles]"
+                      dataType="r8"
+                      name="Number_of_Vehicles" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Number_of_Casualties]"
+                      dataType="r8"
+                      name="Number_of_Casualties" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      dataType="date"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Day_of_Week]"
+                      dataType="r8"
+                      name="Day_of_Week" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Time]"
+                      dataType="date"
+                      name="Time" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Local_Authority_(District)]"
+                      dataType="r8"
+                      name="Local_Authority_(District)" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Local_Authority_(Highway)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Local_Authority_(Highway)" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[1st_Road_Class]"
+                      dataType="r8"
+                      name="1st_Road_Class" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[1st_Road_Number]"
+                      dataType="r8"
+                      name="1st_Road_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Road_Type]"
+                      dataType="r8"
+                      name="Road_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Speed_limit]"
+                      dataType="r8"
+                      name="Speed_limit" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Junction_Detail]"
+                      dataType="r8"
+                      name="Junction_Detail" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Junction_Control]"
+                      dataType="r8"
+                      name="Junction_Control" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[2nd_Road_Class]"
+                      dataType="r8"
+                      name="2nd_Road_Class" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[2nd_Road_Number]"
+                      dataType="r8"
+                      name="2nd_Road_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Pedestrian_Crossing-Human_Control]"
+                      dataType="r8"
+                      name="Pedestrian_Crossing-Human_Control" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Pedestrian_Crossing-Physical_Facilities]"
+                      dataType="r8"
+                      name="Pedestrian_Crossing-Physical_Facilities" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Light_Conditions]"
+                      dataType="r8"
+                      name="Light_Conditions" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Weather_Conditions]"
+                      dataType="r8"
+                      name="Weather_Conditions" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Road_Surface_Conditions]"
+                      dataType="r8"
+                      name="Road_Surface_Conditions" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Special_Conditions_at_Site]"
+                      dataType="r8"
+                      name="Special_Conditions_at_Site" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Carriageway_Hazards]"
+                      dataType="r8"
+                      name="Carriageway_Hazards" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Urban_or_Rural_Area]"
+                      dataType="r8"
+                      name="Urban_or_Rural_Area" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[Did_Police_Officer_Attend_Scene_of_Accident]"
+                      dataType="r8"
+                      name="Did_Police_Officer_Attend_Scene_of_Accident" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].ExternalColumns[LSOA_of_Accident_Location]"
+                      dataType="wstr"
+                      length="255"
+                      name="LSOA_of_Accident_Location" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Accident_Index]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Accident_Index]"
+                      name="Accident_Index" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Location_Easting_OSGR]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Location_Easting_OSGR]"
+                      name="Location_Easting_OSGR" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Location_Northing_OSGR]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Location_Northing_OSGR]"
+                      name="Location_Northing_OSGR" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Longitude]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Longitude]"
+                      name="Longitude" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Latitude]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Latitude]"
+                      name="Latitude" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Police_Force]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Police_Force]"
+                      name="Police_Force" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Accident_Severity]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Accident_Severity]"
+                      name="Accident_Severity" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Number_of_Vehicles]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Number_of_Vehicles]"
+                      name="Number_of_Vehicles" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Number_of_Casualties]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Number_of_Casualties]"
+                      name="Number_of_Casualties" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Date]"
+                      dataType="date"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Day_of_Week]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Day_of_Week]"
+                      name="Day_of_Week" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Time]"
+                      dataType="date"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Time]"
+                      name="Time" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Local_Authority_(District)]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Local_Authority_(District)]"
+                      name="Local_Authority_(District)" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Local_Authority_(Highway)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Local_Authority_(Highway)]"
+                      name="Local_Authority_(Highway)" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[1st_Road_Class]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[1st_Road_Class]"
+                      name="1st_Road_Class" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[1st_Road_Number]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[1st_Road_Number]"
+                      name="1st_Road_Number" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Road_Type]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Road_Type]"
+                      name="Road_Type" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Speed_limit]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Speed_limit]"
+                      name="Speed_limit" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Junction_Detail]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Junction_Detail]"
+                      name="Junction_Detail" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Junction_Control]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Junction_Control]"
+                      name="Junction_Control" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[2nd_Road_Class]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[2nd_Road_Class]"
+                      name="2nd_Road_Class" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[2nd_Road_Number]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[2nd_Road_Number]"
+                      name="2nd_Road_Number" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Pedestrian_Crossing-Human_Control]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Pedestrian_Crossing-Human_Control]"
+                      name="Pedestrian_Crossing-Human_Control" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Pedestrian_Crossing-Physical_Facilities]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Pedestrian_Crossing-Physical_Facilities]"
+                      name="Pedestrian_Crossing-Physical_Facilities" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Light_Conditions]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Light_Conditions]"
+                      name="Light_Conditions" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Weather_Conditions]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Weather_Conditions]"
+                      name="Weather_Conditions" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Road_Surface_Conditions]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Road_Surface_Conditions]"
+                      name="Road_Surface_Conditions" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Special_Conditions_at_Site]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Special_Conditions_at_Site]"
+                      name="Special_Conditions_at_Site" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Carriageway_Hazards]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Carriageway_Hazards]"
+                      name="Carriageway_Hazards" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Urban_or_Rural_Area]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Urban_or_Rural_Area]"
+                      name="Urban_or_Rural_Area" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Did_Police_Officer_Attend_Scene_of_Accident]"
+                      dataType="r8"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[Did_Police_Officer_Attend_Scene_of_Accident]"
+                      name="Did_Police_Officer_Attend_Scene_of_Accident" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[LSOA_of_Accident_Location]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[LSOA_of_Accident_Location]"
+                      name="LSOA_of_Accident_Location" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[OLE DB Destination]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.1712766_DABI_ACCIDENT]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.1712766_DABI_ACCIDENT]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Accident_Index]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Accident_Index"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Accident_Index]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Accident_Index]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Location_Easting_OSGR]"
+                      cachedDataType="r8"
+                      cachedName="Location_Easting_OSGR"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location_Easting_OSGR]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Location_Easting_OSGR]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Location_Northing_OSGR]"
+                      cachedDataType="r8"
+                      cachedName="Location_Northing_OSGR"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location_Northing_OSGR]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Location_Northing_OSGR]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Longitude]"
+                      cachedDataType="r8"
+                      cachedName="Longitude"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Longitude]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                      cachedDataType="r8"
+                      cachedName="Latitude"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Police_Force]"
+                      cachedDataType="r8"
+                      cachedName="Police_Force"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Police_Force]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Police_Force]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Accident_Severity]"
+                      cachedDataType="r8"
+                      cachedName="Accident_Severity"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Accident_Severity]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Accident_Severity]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Number_of_Vehicles]"
+                      cachedDataType="r8"
+                      cachedName="Number_of_Vehicles"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Number_of_Vehicles]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Number_of_Vehicles]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Number_of_Casualties]"
+                      cachedDataType="r8"
+                      cachedName="Number_of_Casualties"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Number_of_Casualties]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Number_of_Casualties]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Day_of_Week]"
+                      cachedDataType="r8"
+                      cachedName="Day_of_Week"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day_of_Week]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Day_of_Week]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Time]"
+                      cachedDataType="date"
+                      cachedName="Time"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Time]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Time]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Local_Authority_(District)]"
+                      cachedDataType="r8"
+                      cachedName="Local_Authority_(District)"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Local_Authority_(District)]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Local_Authority_(District)]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Local_Authority_(Highway)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Local_Authority_(Highway)"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Local_Authority_(Highway)]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Local_Authority_(Highway)]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[1st_Road_Class]"
+                      cachedDataType="r8"
+                      cachedName="1st_Road_Class"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1st_Road_Class]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[1st_Road_Class]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[1st_Road_Number]"
+                      cachedDataType="r8"
+                      cachedName="1st_Road_Number"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1st_Road_Number]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[1st_Road_Number]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Road_Type]"
+                      cachedDataType="r8"
+                      cachedName="Road_Type"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Road_Type]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Road_Type]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Speed_limit]"
+                      cachedDataType="r8"
+                      cachedName="Speed_limit"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Speed_limit]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Speed_limit]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Junction_Detail]"
+                      cachedDataType="r8"
+                      cachedName="Junction_Detail"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Junction_Detail]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Junction_Detail]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Junction_Control]"
+                      cachedDataType="r8"
+                      cachedName="Junction_Control"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Junction_Control]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Junction_Control]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[2nd_Road_Class]"
+                      cachedDataType="r8"
+                      cachedName="2nd_Road_Class"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[2nd_Road_Class]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[2nd_Road_Class]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[2nd_Road_Number]"
+                      cachedDataType="r8"
+                      cachedName="2nd_Road_Number"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[2nd_Road_Number]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[2nd_Road_Number]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Pedestrian_Crossing-Human_Control]"
+                      cachedDataType="r8"
+                      cachedName="Pedestrian_Crossing-Human_Control"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pedestrian_Crossing-Human_Control]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Pedestrian_Crossing-Human_Control]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Pedestrian_Crossing-Physical_Facilities]"
+                      cachedDataType="r8"
+                      cachedName="Pedestrian_Crossing-Physical_Facilities"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pedestrian_Crossing-Physical_Facilities]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Pedestrian_Crossing-Physical_Facilities]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Light_Conditions]"
+                      cachedDataType="r8"
+                      cachedName="Light_Conditions"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Light_Conditions]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Light_Conditions]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Weather_Conditions]"
+                      cachedDataType="r8"
+                      cachedName="Weather_Conditions"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Weather_Conditions]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Weather_Conditions]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Road_Surface_Conditions]"
+                      cachedDataType="r8"
+                      cachedName="Road_Surface_Conditions"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Road_Surface_Conditions]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Road_Surface_Conditions]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Special_Conditions_at_Site]"
+                      cachedDataType="r8"
+                      cachedName="Special_Conditions_at_Site"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Special_Conditions_at_Site]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Special_Conditions_at_Site]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Carriageway_Hazards]"
+                      cachedDataType="r8"
+                      cachedName="Carriageway_Hazards"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Carriageway_Hazards]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Carriageway_Hazards]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Urban_or_Rural_Area]"
+                      cachedDataType="r8"
+                      cachedName="Urban_or_Rural_Area"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Urban_or_Rural_Area]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Urban_or_Rural_Area]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Did_Police_Officer_Attend_Scene_of_Accident]"
+                      cachedDataType="r8"
+                      cachedName="Did_Police_Officer_Attend_Scene_of_Accident"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Did_Police_Officer_Attend_Scene_of_Accident]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[Did_Police_Officer_Attend_Scene_of_Accident]" />
+                    <inputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LSOA_of_Accident_Location]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LSOA_of_Accident_Location"
+                      externalMetadataColumnId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LSOA_of_Accident_Location]"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output].Columns[LSOA_of_Accident_Location]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Accident_Index]"
+                      dataType="wstr"
+                      length="255"
+                      name="Accident_Index" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location_Easting_OSGR]"
+                      dataType="r8"
+                      name="Location_Easting_OSGR" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location_Northing_OSGR]"
+                      dataType="r8"
+                      name="Location_Northing_OSGR" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      dataType="r8"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      dataType="r8"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Police_Force]"
+                      dataType="r8"
+                      name="Police_Force" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Accident_Severity]"
+                      dataType="r8"
+                      name="Accident_Severity" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Number_of_Vehicles]"
+                      dataType="r8"
+                      name="Number_of_Vehicles" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Number_of_Casualties]"
+                      dataType="r8"
+                      name="Number_of_Casualties" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbTimeStamp"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day_of_Week]"
+                      dataType="r8"
+                      name="Day_of_Week" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Time]"
+                      dataType="dbTimeStamp"
+                      name="Time" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Local_Authority_(District)]"
+                      dataType="r8"
+                      name="Local_Authority_(District)" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Local_Authority_(Highway)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Local_Authority_(Highway)" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1st_Road_Class]"
+                      dataType="r8"
+                      name="1st_Road_Class" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[1st_Road_Number]"
+                      dataType="r8"
+                      name="1st_Road_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Road_Type]"
+                      dataType="r8"
+                      name="Road_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Speed_limit]"
+                      dataType="r8"
+                      name="Speed_limit" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Junction_Detail]"
+                      dataType="r8"
+                      name="Junction_Detail" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Junction_Control]"
+                      dataType="r8"
+                      name="Junction_Control" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[2nd_Road_Class]"
+                      dataType="r8"
+                      name="2nd_Road_Class" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[2nd_Road_Number]"
+                      dataType="r8"
+                      name="2nd_Road_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pedestrian_Crossing-Human_Control]"
+                      dataType="r8"
+                      name="Pedestrian_Crossing-Human_Control" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pedestrian_Crossing-Physical_Facilities]"
+                      dataType="r8"
+                      name="Pedestrian_Crossing-Physical_Facilities" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Light_Conditions]"
+                      dataType="r8"
+                      name="Light_Conditions" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Weather_Conditions]"
+                      dataType="r8"
+                      name="Weather_Conditions" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Road_Surface_Conditions]"
+                      dataType="r8"
+                      name="Road_Surface_Conditions" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Special_Conditions_at_Site]"
+                      dataType="r8"
+                      name="Special_Conditions_at_Site" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Carriageway_Hazards]"
+                      dataType="r8"
+                      name="Carriageway_Hazards" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Urban_or_Rural_Area]"
+                      dataType="r8"
+                      name="Urban_or_Rural_Area" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Did_Police_Officer_Attend_Scene_of_Accident]"
+                      dataType="r8"
+                      name="Did_Police_Officer_Attend_Scene_of_Accident" />
+                    <externalMetadataColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LSOA_of_Accident_Location]"
+                      dataType="wstr"
+                      length="255"
+                      name="LSOA_of_Accident_Location" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Source -&gt; DB1712766_DABI_ACCIDENT.Paths[Excel Source Output]"
+              endId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="268,41.6"
+          Id="Package\Source -&gt; DB1712766_DABI_ACCIDENT"
+          TopLeft="285.714290579971,91.7647071693183" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Source -&gt; DB1712766_DABI_ACCIDENT">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source"
+          TopLeft="252.142861436824,68.0588244839111" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination"
+          TopLeft="300.71429083542,206.470591130966" />
+        <EdgeLayout
+          Id="Package\Source -&gt; DB1712766_DABI_ACCIDENT.Paths[Excel Source Output]"
+          TopLeft="321.342861436824,109.658824483911">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.5714293985951,96.8117666470551"
+              Start="0,0"
+              End="64.5714293985951,89.3117666470551">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.4058833235275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.4058833235275"
+                    Point2="0,48.4058833235275"
+                    Point3="4,48.4058833235275" />
+                  <mssgle:LineSegment
+                    End="60.5714293985951,48.4058833235275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60.5714293985951,48.4058833235275"
+                    Point2="64.5714293985951,48.4058833235275"
+                    Point3="64.5714293985951,52.4058833235275" />
+                  <mssgle:LineSegment
+                    End="64.5714293985951,89.3117666470551" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source -&gt; DB1712766_DABI_ACCIDENT\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source -&gt; DB1712766_DABI_ACCIDENT\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
