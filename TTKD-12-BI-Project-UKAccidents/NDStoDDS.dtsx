@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="45"
-  DTS:VersionGUID="{16160C35-87C9-41BB-ACC6-6FF17E91BF3A}">
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{58CD294E-E1E6-40D0-9814-E08067313773}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -17946,19 +17946,19 @@ where [refTable].[FactVehicleStatsId] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="236.8,41.6"
+          Size="237,42"
           Id="Package\Dim JourneyPurposeDriver\update JourneyPurposeDriver dds"
           TopLeft="162,287" />
         <NodeLayout
-          Size="201.6,41.6"
+          Size="202,42"
           Id="Package\Dim JourneyPurposeDriver\JourneyPurposeDriver nds"
           TopLeft="323,59" />
         <NodeLayout
-          Size="230.4,41.6"
+          Size="230,42"
           Id="Package\Dim JourneyPurposeDriver\insert JourneyPurposeDriver dds"
           TopLeft="531,291" />
         <NodeLayout
-          Size="250.4,41.6"
+          Size="250,42"
           Id="Package\Dim JourneyPurposeDriver\Lookup JourneyPurposeDriver id dds"
           TopLeft="319,192" />
         <EdgeLayout
@@ -17992,9 +17992,7 @@ where [refTable].[FactVehicleStatsId] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18472,7 +18470,9 @@ where [refTable].[FactVehicleStatsId] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19634,9 +19634,7 @@ where [refTable].[FactVehicleStatsId] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19720,7 +19718,7 @@ where [refTable].[FactVehicleStatsId] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -19730,7 +19728,7 @@ where [refTable].[FactVehicleStatsId] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -20194,7 +20192,9 @@ where [refTable].[FactVehicleStatsId] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -20312,7 +20312,9 @@ where [refTable].[FactVehicleStatsId] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
